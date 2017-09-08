@@ -4,6 +4,7 @@
     Author     : Adalberto
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,7 @@
                 c = Double.parseDouble(request.getParameter("c"));
                 i = Double.parseDouble(request.getParameter("i"));
                 p = Double.parseDouble(request.getParameter("p"));
+                
             }   
         %>
         <div class="container">
@@ -34,6 +36,47 @@
                         <input type="number" value="<%=(int)p%>" min="1" style="margin-right: 1%" name="p" required>
                         <input type="submit" value="Calcular" name="sendForm">
                     </form>
+                    <br>
+                    <%if(request.getParameter("sendForm") != null){double amort = c/p, j = 0, jtotal = 0, prest = 0, presttotal = 0, amorttotal = c;%>
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <th class="text-center">Período</th>
+                                <th class="text-center">Prestação</th>
+                                <th class="text-center">Juros</th>
+                                <th class="text-center">Amortização</th>
+                                <th class="text-center">Saldo Devedor</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><%=new DecimalFormat("0.00").format(c)%></td>
+                            </tr>
+                            <%for(int x = 0; x < p; x++){
+                                j = c * (i/100);
+                                jtotal += j;
+                                prest = amort + j;
+                                presttotal += prest;
+                                c -= amort;
+                            %>
+                                <tr>
+                                    <td><%=x+1%></td>
+                                    <td><%=new DecimalFormat("0.00").format(prest)%></td>
+                                    <td><%=new DecimalFormat("0.00").format(j)%></td>
+                                    <td><%=new DecimalFormat("0.00").format(amort)%></td>
+                                    <td><%=new DecimalFormat("0.00").format(c)%></td>
+                                </tr>
+                            <%}%>
+                            <tr>
+                                <th class="text-center">Total</th>
+                                <td><%=new DecimalFormat("0.00").format(presttotal)%></td>
+                                <td><%=new DecimalFormat("0.00").format(jtotal)%></td>
+                                <td><%=new DecimalFormat("0.00").format(amorttotal)%></td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                    <%}%>
                 </div>
             </div>
             
