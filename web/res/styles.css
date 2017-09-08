@@ -27,3 +27,18 @@ html {
         text-decoration: none;
         color: #D3D3D3;
       }
+      .btns a {
+       background-color: #ffe81e;
+       color: #b7a500;
+       font-weight: bold;
+       padding: 1%;
+       border-radius: 20px; 
+       display: inline-block;
+       width: 25%;
+       margin: 2%;
+       text-decoration: none;
+      }
+      .btns a:hover {
+        background-color: #c4b531;
+        color: #ffface;
+      }
