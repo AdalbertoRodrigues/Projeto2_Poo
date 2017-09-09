@@ -51,7 +51,7 @@
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/linkedin.png"></a></center>
         </div>
         <div class="col-md-4">
-          <center><img class="img-fluid rounded-circle" width="80%" src="res/imgs/member3.jpeg"></center>
+          <center><img class="img-fluid rounded-circle" width="80%" src="res/imgs/member3.jpg"></center>
           <h4 class="text-center">Marjorie Ribeiro</h4>
           <center><a href=""><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/facebook.png"></a>

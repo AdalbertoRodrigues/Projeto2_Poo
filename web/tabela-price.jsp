@@ -31,7 +31,8 @@
                     <h1 class="mt-5">Cálculo de Amortização Francês (Price)</h1>
                     <br><p>O sistema francês de amortização, é um método usado em amortização de empréstimo cuja principal característica 
                         é apresentar prestações iguais. A tabela Price usa o regime de juros compostos para calcular o valor das parcelas 
-                        de um empréstimo e, dessa parcela, há uma proporção relativa ao pagamento de juros e amortização do valor emprestado.</p>
+                        de um empréstimo e, dessa parcela, há uma proporção relativa ao pagamento de juros e amortização do valor emprestado.
+                       O valor das parcelas pode ser calculado pela fórmula: pmt= (c*i)/(1-(1/(1+i)^n)).</p>                                        
                     <br>
                     <form>
                         Valor do empréstimo :
