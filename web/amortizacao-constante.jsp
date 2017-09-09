@@ -13,12 +13,19 @@
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <%
             double c = 0.01, i = 0.1, p = 1;
+            boolean a = false;
             if(request.getParameter("sendForm") != null) 
             {
-                c = Double.parseDouble(request.getParameter("c"));
-                i = Double.parseDouble(request.getParameter("i"));
-                p = Double.parseDouble(request.getParameter("p"));
-                
+                try 
+                {
+                    c = Double.parseDouble(request.getParameter("c"));
+                    i = Double.parseDouble(request.getParameter("i"));
+                    p = Double.parseDouble(request.getParameter("p"));
+                }
+                catch(Exception ex) 
+                {
+                    a = true;
+                }   
             }   
         %>
         <div class="container">
@@ -37,46 +44,56 @@
                         <input type="submit" value="Calcular" name="sendForm">
                     </form>
                     <br>
-                    <%if(request.getParameter("sendForm") != null){double amort = c/p, j = 0, jtotal = 0, prest = 0, presttotal = 0, amorttotal = c;%>
-                        <table class="table table-striped table-bordered table-hover">
-                            <tr>
-                                <th class="text-center">Período</th>
-                                <th class="text-center">Prestação</th>
-                                <th class="text-center">Juros</th>
-                                <th class="text-center">Amortização</th>
-                                <th class="text-center">Saldo Devedor</th>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td><%=new DecimalFormat("0.00").format(c)%></td>
-                            </tr>
-                            <%for(int x = 0; x < p; x++){
-                                j = c * (i/100);
-                                jtotal += j;
-                                prest = amort + j;
-                                presttotal += prest;
-                                c -= amort;
-                            %>
+                    <%if(a == false){
+                    %>
+                        <%if(request.getParameter("sendForm") != null){double amort = c/p, j = 0, jtotal = 0, prest = 0, presttotal = 0, amorttotal = c;%>
+                            <table class="table table-striped table-bordered table-hover">
                                 <tr>
-                                    <td><%=x+1%></td>
-                                    <td><%=new DecimalFormat("0.00").format(prest)%></td>
-                                    <td><%=new DecimalFormat("0.00").format(j)%></td>
-                                    <td><%=new DecimalFormat("0.00").format(amort)%></td>
+                                    <th class="text-center">Período</th>
+                                    <th class="text-center">Prestação</th>
+                                    <th class="text-center">Juros</th>
+                                    <th class="text-center">Amortização</th>
+                                    <th class="text-center">Saldo Devedor</th>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                     <td><%=new DecimalFormat("0.00").format(c)%></td>
                                 </tr>
-                            <%}%>
-                            <tr>
-                                <th class="text-center">Total</th>
-                                <td><%=new DecimalFormat("0.00").format(presttotal)%></td>
-                                <td><%=new DecimalFormat("0.00").format(jtotal)%></td>
-                                <td><%=new DecimalFormat("0.00").format(amorttotal)%></td>
-                                <td>-</td>
-                            </tr>
-                        </table>
-                    <%}%>
+                                <%for(int x = 0; x < p; x++){
+                                    j = c * (i/100);
+                                    jtotal += j;
+                                    prest = amort + j;
+                                    presttotal += prest;
+                                    c -= amort;
+                                %>
+                                    <tr>
+                                        <td><%=x+1%></td>
+                                        <td><%=new DecimalFormat("0.00").format(prest)%></td>
+                                        <td><%=new DecimalFormat("0.00").format(j)%></td>
+                                        <td><%=new DecimalFormat("0.00").format(amort)%></td>
+                                        <td><%=new DecimalFormat("0.00").format(c)%></td>
+                                    </tr>
+                                <%}%>
+                                <tr>
+                                    <th class="text-center">Total</th>
+                                    <td><%=new DecimalFormat("0.00").format(presttotal)%></td>
+                                    <td><%=new DecimalFormat("0.00").format(jtotal)%></td>
+                                    <td><%=new DecimalFormat("0.00").format(amorttotal)%></td>
+                                    <td>-</td>
+                                </tr>
+                            </table>
+                            <%}
+                        }
+                        else 
+                        {
+                            out.println("<h1 style='color: red' class='text-center'>Ocorreu um erro</h1>"
+                            + "<h2 style='color: red' class='text-center'>Por favor tente novamente</h2>");
+                        }
+                        %>
+                        
                 </div>
             </div>
             
