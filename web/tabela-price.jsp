@@ -14,12 +14,15 @@
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <%
             double c = 0.01, i = 0.1, n = 1;
+             boolean b = false;
             if(request.getParameter("enviar") != null) 
-            {
+            { try{
                 c = Double.parseDouble(request.getParameter("c"));
                 i = Double.parseDouble(request.getParameter("i"));
                 n = Double.parseDouble(request.getParameter("n"));
-                
+            }catch (Exception ex){
+            b=true;
+            }
             }   
         %>
         <div class="container">
@@ -40,6 +43,8 @@
                         <input type="submit" value="Calcular" name="enviar">
                     </form>
                     <br>
+                     <%if(b == false){
+                    %>
                     <%if(request.getParameter("enviar") != null){ 
                         double aux=i/100, a=0, at = 0, juros = 0, jurosTotal = 0, pmt=(c*aux)/(1- (1/(Math.pow(1+aux,n)))) , pmtt = 0;
                   
@@ -85,7 +90,14 @@
                                 <td>-</td>
                             </tr>
                         </table>
-                    <%}%>
+                    <%}
+                    } else 
+                        {
+                            out.println("<h1 style='color: red' class='text-center'>Ocorreu um erro</h1>"
+                            + "<h2 style='color: red' class='text-center'>Por favor tente novamente</h2>");
+                        }
+                    %>
+                    
                 </div>
             </div>
             
