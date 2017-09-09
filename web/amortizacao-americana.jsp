@@ -38,7 +38,7 @@
                         Taxa de juros(%.a.m):
                         <input type="number" value="<%=i%>" step="any" style="margin-right: 1%" name="i" required="">
                         Periodo(meses):
-                        <input type="number" value="<%=n%>" min="1" style="margin-right: 1%" name="n" required>
+                        <input type="number" value="<%=(int)n%>" min="1" style="margin-right: 1%" name="n" required>
                         <input type="submit" value="Calcular" name="enviar">
                     </form>
                     <br>
@@ -71,6 +71,7 @@
                                if(y==n-1){
                                a=c;
                                prest=juros+a;
+                               c = 0;
                                }
                               %>
                                 <tr>
