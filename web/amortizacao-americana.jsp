@@ -68,6 +68,10 @@
                             <%for(int y = 0; y < n; y++){
                                 jurosTotal=jurosTotal+juros;
                                prestTotal= prestTotal +prest; 
+                               if(y==n-1){
+                               a=c;
+                               prest=juros+a;
+                               }
                               %>
                                 <tr>
                                     <td><%=y+1%></td>
