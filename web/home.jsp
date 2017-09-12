@@ -36,24 +36,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
-          <center><img class="img-fluid rounded-circle" width="80%" src="res/imgs/member1.jpg"></center>
+        <div class="col-md-6">
+          <center><img class="img-fluid rounded-circle" width="60%" src="res/imgs/member1.jpg"></center>
           <h4 class="text-center">Adalberto Rodrigues</h4>
-          <center><a href=""><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
+          <center><a href="https://github.com/AdalbertoRodrigues"><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/facebook.png"></a>
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/linkedin.png"></a></center>
         </div>
-        <div class="col-md-4">
-          <center><img class="img-fluid rounded-circle" width="80%" src="res/imgs/member2.jpg"></center>
-          <h4 class="text-center">Fabricio Lima</h4>
-          <center><a href=""><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
-          <a href=""><img class="img-fluid" width="50px" src="res/imgs/facebook.png"></a>
-          <a href=""><img class="img-fluid" width="50px" src="res/imgs/linkedin.png"></a></center>
-        </div>
-        <div class="col-md-4">
-          <center><img class="img-fluid rounded-circle" width="80%" src="res/imgs/member3.jpg"></center>
+        <div class="col-md-6">
+          <center><img class="img-fluid rounded-circle" width="60%" src="res/imgs/member3.jpg"></center>
           <h4 class="text-center">Marjorie Ribeiro</h4>
-          <center><a href=""><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
+          <center><a href="https://github.com/Marjorie31"><img class="img-fluid" width="50px" src="res/imgs/github.png"></a>
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/facebook.png"></a>
           <a href=""><img class="img-fluid" width="50px" src="res/imgs/linkedin.png"></a></center>
           <br>
